@@ -64,7 +64,7 @@ def musicas(nome=None):
         q  = response.json()
         link = q['data'][0]['link']
         descricao = q['data'][0]['title']
-        foto = q['data'][0]['album']['cover_xl']    
+        foto = q['data'][0]['album']['cover_big']    
         return render_template('musicas.html', nome = nome,link = link, descricao = descricao,foto=foto)
 
 if __name__=='__name__':
