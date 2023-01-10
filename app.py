@@ -50,12 +50,22 @@ def index():
     return render_template('index.html',l=l,t=t,c=c,l1=l1,t1=t1,c1=c1,l2=l2,t2=t2,c2=c2,l3=l3,t3=t3,c3=c3,l4=l4,t4=t4,c4=c4,l5=l5,t5=t5,c5=c5,l6=l6,t6=t6,c6=c6,l7=l7,t7=t7,c7=c7,l8=l8,t8=t8,c8=c8,l9=l9,t9=t9,c9=c9)
 @app.route('/musicas/<nome>')
 def musicas(nome=None):
-        a = nome
-        musica = requests.get(f"https://api.deezer.com/search?q={a}")
-        musica_dic = musica.json()
-        link = musica_dic['data'][0]['link']
-        descricao = musica_dic['data'][0]['title']
-        return render_template('musicas.html', nome = nome,link = link, descricao = descricao)
+
+        url = "https://deezerdevs-deezer.p.rapidapi.com/search"
+
+        querystring = {"q":nome}
+
+        headers = {
+	        "X-RapidAPI-Key": "a20c999515msh9ad00c73d2b660ap1c376ajsn2046be0cfe12",
+	        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
+        }
+
+        response = requests.request("GET", url, headers=headers, params=querystring)
+        q  = response.json()
+        link = q['data'][0]['link']
+        descricao = q['data'][0]['title']
+        foto = q['data'][0]['album']['cover_xl']    
+        return render_template('musicas.html', nome = nome,link = link, descricao = descricao,foto=foto)
 
 if __name__=='__name__':
     app.run(debug=True)
