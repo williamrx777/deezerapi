@@ -8,7 +8,7 @@ def index():
         musicas = request.form["nome"]
         return redirect(url_for("musicas", nome=musicas))
     else:
-        url = "https://deezerdevs-deezer.p.rapidapi.com/playlist/10958739202"
+        url = "https://deezerdevs-deezer.p.rapidapi.com/playlist/2293317906"
 
         headers = {
 	        "X-RapidAPI-Key": "a20c999515msh9ad00c73d2b660ap1c376ajsn2046be0cfe12",
