@@ -1,31 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container">
+    
         <form action="#" method="post">
-                <div class="container container-fluid">
-                    <div class="d-flex flex-column mb-3">
+            <div class="container container-fluid">
+                <div class="d-flex flex-column mb-3">
                         <h1 class="h1 text-center p-2" >Deezer</h1>
                         <input type="text" class="form-control p-2" name=nome placeholder="Digite sua musica ou banda favorita">
-                        <input type="submit" class="btn btn-primary align-middle p-2" value="submit">
                     </div>
+                    <button type="submit" class="btn btn-primary align-middle p-2" value="submit">Pesquisar</button>
                 </div>
         </form>
-    </div>
+    
+        <h2 class="h2 text-center">Top 10 Gospel</h1>
     <div class="container container-fluid">
-        <div class="d-flex flex-row mb-5 flex-wrap">
-
-        
-            <a class="p-2" href="{{l}}"><img src="{{c}}" alt=""></a>
-            <a class="p-2" href="{{l1}}"><img src="{{c1}}" alt=""></a>
-            <a class="p-2" href="{{l2}}"><img src="{{c2}}" alt=""></a>
-            <a class="p-2" href="{{l3}}"><img src="{{c3}}" alt=""></a>
-            <a class="p-2" href="{{l4}}"><img src="{{c4}}" alt=""></a>
-            <a class="p-2" href="{{l5}}"><img src="{{c5}}" alt=""></a>
-            <a class="p-2" href="{{l6}}"><img src="{{c6}}" alt=""></a>
-            <a class="p-2" href="{{l7}}"><img src="{{c7}}" alt=""></a>
-            <a class="p-2" href="{{l8}}"><img src="{{c8}}" alt=""></a>
-            <a class="p-2" href="{{l9}}"><img src="{{c9}}" alt=""></a>
+        <div class="d-flex flex-row mb-3 flex-wrap">
+            <a class="p-1" href="{{l}}"><img src="{{c}}" alt=""></a>
+            <a class="p-1" href="{{l1}}"><img src="{{c1}}" alt=""></a>
+            <a class="p-1" href="{{l2}}"><img src="{{c2}}" alt=""></a>
+            <a class="p-1" href="{{l3}}"><img src="{{c3}}" alt=""></a>
+            <a class="p-1" href="{{l4}}"><img src="{{c4}}" alt=""></a>
+            <a class="p-1" href="{{l5}}"><img src="{{c5}}" alt=""></a>
+            <a class="p-1" href="{{l6}}"><img src="{{c6}}" alt=""></a>
+            <a class="p-1" href="{{l7}}"><img src="{{c7}}" alt=""></a>
+            <a class="p-1" href="{{l8}}"><img src="{{c8}}" alt=""></a>
+            <a class="p-1" href="{{l9}}"><img src="{{c9}}" alt=""></a>
             
         </div>
     </div>

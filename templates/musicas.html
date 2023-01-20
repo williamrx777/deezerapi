@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-        <div class="container container-fluid ">
-            <div class="d-flex flex-column mb-3">
-                <h1 class="h1 p-2 " >{{nome}}</h1>
-                <h2 class="h2 p-2 " >{{descricao}}</h2>
-                <a class=" p-2" href="{{link}}" ><img class="p-2" src="{{foto}}" alt=""></a>
+<div class="container container-fluid">
+    <div class="d-flex flex-column mb-3">
+                <h1 class="h1 text-center" >{{descricao}}</h1>
+                <img class="img-fluid" src="{{foto}}" alt="">
+                <br>
+                <a class="btn btn-primary stretched-link" href="{{link}}" >Click aqui</a>
             </div>
         </div>
 {% endblock %}
