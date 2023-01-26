@@ -1,5 +1,6 @@
 from flask import Flask,request,redirect,render_template,url_for
 import requests
+import json
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -51,20 +52,15 @@ def index():
 @app.route('/musicas/<nome>')
 def musicas(nome=None):
 
-        url = "https://deezerdevs-deezer.p.rapidapi.com/search"
-
-        querystring = {"q":nome}
-
-        headers = {
-	        "X-RapidAPI-Key": "a20c999515msh9ad00c73d2b660ap1c376ajsn2046be0cfe12",
-	        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com"
-        }
-
-        response = requests.request("GET", url, headers=headers, params=querystring)
-        q  = response.json()
-        link = q['data'][0]['link']
-        descricao = q['data'][0]['title']
-        foto = q['data'][0]['album']['cover_big']    
+        artist = nome
+ 
+        musica = requests.get(f"https://api.deezer.com/search?q={artist}")
+        print(musica)
+        musica_dic = musica.json()
+        link = musica_dic['data'][0]['link']
+        descricao = musica_dic['data'][0]['title']
+        foto = musica_dic['data'][0]['album']['cover_xl']
+        print(link, descricao,foto) 
         return render_template('musicas.html', nome = nome,link = link, descricao = descricao,foto=foto)
 
 if __name__=='__name__':
